@@ -12,7 +12,6 @@ function MenuComponent( {menus, addCart} : MenuComponentProps) {
     const [cat, setCat] = useState('A')
 
     const showCategory = (cat:string):void => {
-
         setCat(cat)
     }
 
