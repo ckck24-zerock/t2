@@ -38,6 +38,19 @@ function KioskContainer() {
         setCartItems([...cartItems])
     }
 
+    const changeCart = (mno: number, amount:number, del:boolean) => {
+
+        //카트에서 삭제
+        if(del){
+            setCartItems([ ...cartItems.filter(item => item.menu.mno !== mno) ])
+            return
+        }
+
+        const cartItem:CartItem = cartItems.filter( item => item.menu.mno === mno)[0]
+        cartItem.qty += amount
+        setCartItems([...cartItems])
+    }
+
 
 
     return (
@@ -47,7 +60,9 @@ function KioskContainer() {
                 <MenuComponent menus={menuArr} addCart={addCart}></MenuComponent>
             </div>
             <div className={'w-1/3 h-full bg-green-200 p-10'}>
-                <CartComponent cartItems={cartItems}></CartComponent>
+                <CartComponent
+                    cartItems={cartItems}
+                    changeCart={changeCart}></CartComponent>
             </div>
 
         </div>
