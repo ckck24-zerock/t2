@@ -9,29 +9,30 @@ interface MenuComponentProps {
 
 function MenuComponent( {menus, addCart} : MenuComponentProps) {
 
-    console.log(addCart)
+    const [cat, setCat] = useState('A')
 
-    const [arr, setArr] = useState<Menu[]>(menus)
+    const showCategory = (cat:string):void => {
 
-    const showCategory = (cat:string) => {
-
-        if(cat === 'A') {
-            arr.forEach(menu => { menu.show = true })
-        }else{
-            arr.forEach(menu => {menu.show = menu.category === cat})
-        }
-        setArr([...arr])
+        setCat(cat)
     }
+
+    const targetMenus = menus.filter(menu => {
+        if(cat === 'A'){
+            return true
+        }else {
+            return menu.category === cat
+        }
+    })
 
     const handleClick = (mno:number)=> {
 
         if(confirm('장바구니에 추가하시겠습니까?') ) {
             console.log(mno)
+            addCart(mno)
         }
     }
 
-
-    const menuLis = arr.map( menu => menu.show ?
+    const menuLis = targetMenus.map( menu => menu.show ?
         <div onClick={() => handleClick(menu.mno)}  key={menu.mno} className="max-w-xs bg-white rounded-2xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
             <img src={menu.imgName} alt={menu.name} className="w-full h-48 object-cover" />
             <div className="p-4 text-center">
@@ -68,7 +69,8 @@ function MenuComponent( {menus, addCart} : MenuComponentProps) {
                 {menuLis}
             </div>
         </div>
-    );
+    )
+
 }
 
 export default MenuComponent;
