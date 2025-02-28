@@ -23,11 +23,24 @@ function TodoContainer() {
 
     console.log(addTodo, removeTodo)
 
+    const [title, setTitle] = useState('')
+
     return (
         <div className={'w-full h-2/3 bg-fuchsia-200 border-1'}>
-            <div className={'m-2 p-2 h-1/5 flex justify-center'}>
-                <input type={'text'} className={'w-2/3 bg-white p-2 h-10'}/>
-                <button>SAVE</button>
+            <div className={'m-2 p-2 h-1/5 flex justify-center items-center'}>
+                <input
+                    type={'text'}
+                    className={'w-2/4 bg-white p-2 h-10'}
+                    value={title}
+                    onChange={ e => { setTitle(e.target.value)}}
+                />
+
+                <button
+                    className={'p-2 border-1'}
+                    onClick={ () => {
+                        addTodo(title)
+                    }}
+                >SAVE</button>
             </div>
             <div>
                 <ul>
