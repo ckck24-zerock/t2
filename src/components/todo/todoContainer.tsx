@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {ChangeEvent, useState} from "react";
 
 import { v4 as uuidv4 } from 'uuid';
 
@@ -25,6 +25,10 @@ function TodoContainer() {
 
     const [title, setTitle] = useState('')
 
+    const handleChange = (e:ChangeEvent<HTMLInputElement>)=>{
+        setTitle(e.target.value)
+    }
+
     return (
         <div className={'w-full h-2/3 bg-fuchsia-200 border-1'}>
             <div className={'m-2 p-2 h-1/5 flex justify-center items-center'}>
@@ -32,7 +36,7 @@ function TodoContainer() {
                     type={'text'}
                     className={'w-2/4 bg-white p-2 h-10'}
                     value={title}
-                    onChange={ e => { setTitle(e.target.value)}}
+                    onChange={ handleChange }
                 />
 
                 <button
@@ -44,6 +48,8 @@ function TodoContainer() {
             </div>
             <div>
                 <ul>
+
+                    {todos.map(todo => <li key={todo.tid}> {todo.title} </li>)}
 
                 </ul>
             </div>
