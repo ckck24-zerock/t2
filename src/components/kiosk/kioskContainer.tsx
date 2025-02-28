@@ -15,10 +15,10 @@ function KioskContainer() {
     return (
         <div className={'flex h-full'}>
 
-            <div className={'w-2/3 h-100 bg-orange-200 p-10'}>
+            <div className={'w-2/3 h-full bg-orange-200 p-10'}>
                 <MenuComponent menus={menuArr}></MenuComponent>
             </div>
-            <div className={'w-1/3 h-100 bg-green-200 p-10'}>
+            <div className={'w-1/3 h-full bg-green-200 p-10'}>
                 <CartComponent></CartComponent>
             </div>
 
