@@ -38,7 +38,7 @@ function KioskContainer() {
         setCartItems([...cartItems])
     }
 
-    const changeCart = (mno: number, amount:number, del:boolean) => {
+    const changeCart = (mno: number, amount:number, del?:boolean) => {
 
         //카트에서 삭제
         if(del){
