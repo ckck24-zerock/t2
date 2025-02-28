@@ -1,10 +1,8 @@
 
 
 
+function CountDisplay() {
 
-function CountDisplay(props) {
-
-    console.log(props)
 
     return (
         <div className={'text-5xl'}>
