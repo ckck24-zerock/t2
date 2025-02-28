@@ -23,9 +23,6 @@ function CartComponent({cartItems}: CartComponentProps) {
         )
     })
 
-
-
-
     return (
         <div>
             <div>Cart</div>
@@ -37,6 +34,7 @@ function CartComponent({cartItems}: CartComponentProps) {
             </div>
 
             <div>
+                <hr/>
                 TOTAL: {total}
             </div>
 
