@@ -16,7 +16,7 @@ function KioskContainer() {
         <div className={'flex h-full'}>
 
             <div className={'w-2/3 h-100 bg-orange-200 p-10'}>
-                <MenuComponent></MenuComponent>
+                <MenuComponent menus={menuArr}></MenuComponent>
             </div>
             <div className={'w-1/3 h-100 bg-green-200 p-10'}>
                 <CartComponent></CartComponent>
