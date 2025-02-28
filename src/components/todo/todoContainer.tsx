@@ -21,9 +21,20 @@ function TodoContainer() {
         setTodos(filteredResult)
     }
 
+    console.log(addTodo, removeTodo)
 
     return (
-        <div></div>
+        <div className={'w-full h-2/3 bg-fuchsia-200 border-1'}>
+            <div className={'m-2 p-2 h-1/5 flex justify-center'}>
+                <input type={'text'} className={'w-2/3 bg-white p-2 h-10'}/>
+                <button>SAVE</button>
+            </div>
+            <div>
+                <ul>
+
+                </ul>
+            </div>
+        </div>
     );
 }
 
