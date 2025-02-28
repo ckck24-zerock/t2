@@ -1,12 +1,15 @@
 
+interface CountDisplayProps {
+    countObj: Count
+}
 
+function CountDisplay( {countObj}: CountDisplayProps  ) {
 
-function CountDisplay() {
-
+    console.log(countObj)
 
     return (
         <div className={'text-5xl'}>
-            NUMBER:
+            NUMBER: {countObj.num}
         </div>
     );
 }
